@@ -14,22 +14,20 @@ allprojects {
 
     repositories {
         // mirrors:
-        // - https://maven.enginehub.org/repo/
-        // - https://maven.terraformersmc.com/releases/
         // - https://maven.minecraftforge.net/
         // - https://maven.neoforged.net/
         // - https://maven.parchmentmc.org/
-        // - https://repo.viaversion.com/
-        maven(url = "https://repo.stellardrift.ca/repository/stable/") {
-            name = "stellardriftReleases"
+        maven(url = "https://maven.enginehub.org/repo/") {
+            name = "enginehub"
             mavenContent {
-                releasesOnly()
                 excludeGroup("org.lwjgl") // workaround for lwjgl-freetype
             }
         }
-        maven(url = "https://repo.stellardrift.ca/repository/snapshots/") {
-            name = "stellardriftSnapshots"
-            mavenContent { snapshotsOnly() }
+        maven(url = "https://maven.terraformersmc.com/releases/") {
+            name = "terraformersmc"
+        }
+        maven(url = "https://repo.viaversion.com/") {
+            name = "viaversion"
         }
     }
 }
