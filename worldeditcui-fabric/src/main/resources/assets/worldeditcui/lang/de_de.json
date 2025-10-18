@@ -41,6 +41,5 @@
     "worldeditcui.options.extra.clearall.tooltip": "Entferne alle Regionen, wenn %s (%s) genutzt wird",
     "worldeditcui.options.done": "Anwenden",
     "worldeditcui.options.debugMode": "Debug Modus",
-    "worldeditcui.options.debugMode.tooltip": "Aktiviere erweiterten Debug Modus",
-    "key.category.worldeditcui.general": "WorldEditCUI"
+    "worldeditcui.options.debugMode.tooltip": "Aktiviere erweiterten Debug Modus"
 }

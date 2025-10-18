@@ -17,7 +17,6 @@ import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.state.BlockOutlineRenderState;
-import org.joml.Matrix4f;
 
 public interface BlockOutlineRenderCallback {
     record Context(

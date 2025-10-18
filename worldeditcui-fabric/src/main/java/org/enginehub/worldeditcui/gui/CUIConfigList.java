@@ -89,12 +89,12 @@ public class CUIConfigList extends ContainerObjectSelectionList<CUIConfigList.Co
         }
 
         @Override
-        public List<? extends GuiEventListener> children() {
+        public @NotNull List<? extends GuiEventListener> children() {
             return ImmutableList.of(this.resetButton, this.toggleBotton);
         }
 
         @Override
-        public List<? extends NarratableEntry> narratables() {
+        public @NotNull List<? extends NarratableEntry> narratables() {
             return ImmutableList.of(this.resetButton, this.toggleBotton);
         }
 
