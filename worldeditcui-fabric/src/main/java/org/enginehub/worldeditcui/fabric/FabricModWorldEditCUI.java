@@ -97,11 +97,11 @@ public final class FabricModWorldEditCUI implements ModInitializer {
         ClientLifecycleEvents.CLIENT_STARTED.register(this::onGameInitDone);
         CUINetworking.subscribeToCuiPacket(this::onPluginMessage);
         ClientPlayConnectionEvents.JOIN.register(this::onJoinGame);
-        WorldRenderEvents.AFTER_TRANSLUCENT.register(ctx -> {
+        WorldRenderCallback.AFTER_TRANSLUCENT.register(ctx -> {
             if (ctx.advancedTranslucency()) {
                 try {
                     RenderSystem.getModelViewStack().pushMatrix();
-                    RenderSystem.getModelViewStack().mul(ctx.matrixStack().last().pose());
+                    RenderSystem.getModelViewStack().mul(ctx.poseStack().last().pose());
                     // RenderSystem.applyModelViewMatrix();
                     //ctx.worldRenderer().getTranslucentTarget().bindWrite(false);
                     this.onPostRenderEntities(ctx);
@@ -111,11 +111,11 @@ public final class FabricModWorldEditCUI implements ModInitializer {
                 }
             }
         });
-        WorldRenderEvents.LAST.register(ctx -> {
+        WorldRenderCallback.LAST.register(ctx -> {
             if (!ctx.advancedTranslucency()) {
                 try {
                     RenderSystem.getModelViewStack().pushMatrix();
-                    RenderSystem.getModelViewStack().mul(ctx.matrixStack().last().pose());
+                    RenderSystem.getModelViewStack().mul(ctx.poseStack().last().pose());
                     // RenderSystem.applyModelViewMatrix();
                     this.onPostRenderEntities(ctx);
                 } finally {
@@ -195,9 +195,9 @@ public final class FabricModWorldEditCUI implements ModInitializer {
         this.helo(handler);
     }
 
-    public void onPostRenderEntities(final WorldRenderContext ctx) {
+    public void onPostRenderEntities(final WecuiRenderContext ctx) {
         if (this.visible) {
-            this.worldRenderListener.onRender(ctx.tickCounter().getRealtimeDeltaTicks());
+            this.worldRenderListener.onRender(ctx.delta().getRealtimeDeltaTicks());
         }
     }
 
