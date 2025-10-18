@@ -3,7 +3,7 @@
     "key.worldeditcui.toggle": "CUI Sichtbarkeit An/Aus",
     "key.worldeditcui.clear": "WorldEdit Auswahl aufheben",
     "key.worldeditcui.chunk": "Chunkgrenzen An/Aus",
-    "key.categories.worldeditcui": "WorldEditCUI",
+    "key.category.worldeditcui.general": "WorldEditCUI",
     "worldeditcui.color.cuboidedge": "Quader Randfarbe",
     "worldeditcui.color.cuboidedge.tooltip": "Wähle die Farbe für den Rand einer Quader-Region aus",
     "worldeditcui.color.cuboidgrid": "Quader Rasterfarbe",
@@ -41,5 +41,6 @@
     "worldeditcui.options.extra.clearall.tooltip": "Entferne alle Regionen, wenn %s (%s) genutzt wird",
     "worldeditcui.options.done": "Anwenden",
     "worldeditcui.options.debugMode": "Debug Modus",
-    "worldeditcui.options.debugMode.tooltip": "Aktiviere erweiterten Debug Modus"
+    "worldeditcui.options.debugMode.tooltip": "Aktiviere erweiterten Debug Modus",
+    "key.category.worldeditcui.general": "WorldEditCUI"
 }

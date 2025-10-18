@@ -51,7 +51,7 @@ public final class FabricModWorldEditCUI implements ModInitializer {
     private static FabricModWorldEditCUI instance;
 
     private static final KeyMapping.Category KEYBIND_CATEGORY_WECUI
-            = new KeyMapping.Category(ResourceLocation.fromNamespaceAndPath(MOD_ID, ""));
+            = new KeyMapping.Category(ResourceLocation.fromNamespaceAndPath(MOD_ID, "general"));
 
     private final KeyMapping keyBindToggleUI = key("toggle", GLFW.GLFW_KEY_UNKNOWN);
     private final KeyMapping keyBindClearSel = key("clear", GLFW.GLFW_KEY_UNKNOWN);
