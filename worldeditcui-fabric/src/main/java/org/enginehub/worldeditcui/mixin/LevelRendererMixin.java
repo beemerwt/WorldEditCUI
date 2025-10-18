@@ -42,8 +42,10 @@ public abstract class LevelRendererMixin {
             Camera camera, Matrix4f modelView, Matrix4f projection, Matrix4f inverseProjection,
             GpuBufferSlice slice, Vector4f clearColor, boolean renderSky, CallbackInfo ci
     ) {
-        // per-frame prep (camera/projection etc.)
-        // modelView/projection are valid right here in 1.21.9
+        PoseStack pose = new PoseStack();
+        pose.last().pose().set(modelView); // copy modelView for parity with old ctx
+        WorldRenderCallback.START.invoker()
+                .render(new WecuiRenderContext(this.minecraft, camera, delta, pose, projection));
     }
 
     // LAST (old LAST)
@@ -54,7 +56,7 @@ public abstract class LevelRendererMixin {
             GpuBufferSlice slice, Vector4f clearColor, boolean renderSky, CallbackInfo ci
     ) {
         PoseStack pose = new PoseStack();
-        pose.last().pose().set(modelView); // copy modelView for parity with old ctx
+        pose.last().pose().set(modelView);
         WorldRenderCallback.LAST.invoker()
                 .render(new WecuiRenderContext(this.minecraft, camera, delta, pose, projection));
     }
@@ -74,7 +76,6 @@ public abstract class LevelRendererMixin {
             Camera camera, Matrix4f modelView, Matrix4f projection, Matrix4f inverseProjection,
             GpuBufferSlice slice, Vector4f clearColor, boolean renderSky,
             CallbackInfo ci
-            // Locals in scope at this point (order matters; keep in sync with the method body you posted)
     ) {
         var pose = new PoseStack();
         pose.last().pose().set(modelView);
