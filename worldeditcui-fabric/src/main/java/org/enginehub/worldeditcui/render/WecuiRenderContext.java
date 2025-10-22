@@ -16,6 +16,17 @@ import net.minecraft.client.GraphicsStatus;
 import net.minecraft.client.Minecraft;
 import org.joml.Matrix4f;
 
+/**
+ * Temporary record for render context information used to render elements through
+ * {@link org.enginehub.worldeditcui.callback.WorldRenderCallback} until Fabric provides
+ * a proper rendering API.
+ *
+ * @param client           The Minecraft client instance.
+ * @param camera           The current camera.
+ * @param delta            The delta tracker for interpolation.
+ * @param poseStack        The pose stack for rendering transformations.
+ * @param projectionMatrix The projection matrix used for rendering.
+ */
 public record WecuiRenderContext(
         Minecraft client,
         Camera camera,

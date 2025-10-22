@@ -13,34 +13,24 @@ import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
 import org.enginehub.worldeditcui.render.WecuiRenderContext;
 
+/**
+ * A re-implementation of the old world render events for Fabric.
+ * Temporary until Fabric finishes their new rendering API.
+ */
 public interface WorldRenderCallback {
     void render(WecuiRenderContext ctx);
 
+    /**
+     * Fires at the end of world rendering, after all other rendering is complete.
+     */
     Event<WorldRenderCallback> LAST = EventFactory.createArrayBacked(WorldRenderCallback.class, cbs -> ctx -> {
         for (var cb : cbs) cb.render(ctx);
     });
-    Event<WorldRenderCallback> START = EventFactory.createArrayBacked(WorldRenderCallback.class, cbs -> ctx -> {
-        for (var cb : cbs) cb.render(ctx);
-    });
-    Event<WorldRenderCallback> BEFORE_ENTITY_EXTRACT = EventFactory.createArrayBacked(WorldRenderCallback.class, cbs -> ctx -> {
-        for (var cb : cbs) cb.render(ctx);
-    });
-    Event<WorldRenderCallback> AFTER_ENTITY_EXTRACT = EventFactory.createArrayBacked(WorldRenderCallback.class, cbs -> ctx -> {
-        for (var cb : cbs) cb.render(ctx);
-    });
-    Event<WorldRenderCallback> BEFORE_BLOCK_ENTITY_EXTRACT = EventFactory.createArrayBacked(WorldRenderCallback.class, cbs -> ctx -> {
-        for (var cb : cbs) cb.render(ctx);
-    });
-    Event<WorldRenderCallback> AFTER_BLOCK_ENTITY_EXTRACT = EventFactory.createArrayBacked(WorldRenderCallback.class, cbs -> ctx -> {
-        for (var cb : cbs) cb.render(ctx);
-    });
-    Event<WorldRenderCallback> BEFORE_BLOCK_OUTLINE_EXTRACT = EventFactory.createArrayBacked(WorldRenderCallback.class, cbs -> ctx -> {
-        for (var cb : cbs) cb.render(ctx);
-    });
+
+    /**
+     * Fires immediately after the translucent rendering pass.
+     */
     Event<WorldRenderCallback> AFTER_TRANSLUCENT = EventFactory.createArrayBacked(WorldRenderCallback.class, cbs -> ctx -> {
-        for (var cb : cbs) cb.render(ctx);
-    });
-    Event<WorldRenderCallback> AFTER_MAIN_PASS_SCHEDULED = EventFactory.createArrayBacked(WorldRenderCallback.class, cbs -> ctx -> {
         for (var cb : cbs) cb.render(ctx);
     });
 }
